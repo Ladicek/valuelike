@@ -1,0 +1,29 @@
+package {{packageName}};
+
+public final class {{className}} implements {{interfaceName}} {
+  {{#fields}}
+    private final {{{fullyQualifiedType}}} {{name}};
+  {{/fields}}
+
+    public {{className}}({{{constructorParameters}}}) {
+      {{#fields}}
+        this.{{name}} = {{name}};
+      {{/fields}}
+    }
+
+  {{#fields}}
+    @Override
+    public {{{fullyQualifiedType}}} {{name}}() {
+        return {{name}};
+    }
+  {{/fields}}
+
+    @Override
+    public String toString() {
+        return "{{interfaceName}}(" +
+            {{#fields}}
+                "{{name}}='" + {{name}} + "' " +
+            {{/fields}}
+        ")";
+    }
+}
